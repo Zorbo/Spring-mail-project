@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RestController;
 import spring_app.mail.MailSender;
 import spring_app.mail.MockMailSender;
 
+import javax.mail.MessagingException;
+
 // In Dependency injection Spring will find this controller because the
 // @RestController annotation
 // Oder is: @Component --> @RestController --> @Autowired
@@ -34,7 +36,11 @@ public class MailController {
     @RequestMapping("/mail")  // This means https://localhost:8080/hello
     public String  mail(){
 
-        mailSender.send("mail@example.com","Test mail sending","I just made a mail sender");
+        try {
+            mailSender.send("magus7685345345@gmail.com","Test mail sending","I just made a mail sender");
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
         return "Mail sent!";
     }
 }

@@ -7,14 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HelloController {
 
-
+/*
     // Here we read the properties file app.name VALUE and save it to a String(appName)
     @Value("${app.name}")
     private String appName;
+    */
 
 
     @RequestMapping("/hello")  // This means https://localhost:8080/hello
     public String  hello(){
-        return "Hello World! " + appName;
+        return "Hello World! " /* + appName */;
     }
 }
